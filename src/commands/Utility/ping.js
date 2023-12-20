@@ -1,6 +1,7 @@
 // Dependencies
 const { Message } = require("discord.js")
 const client = require("../../..")
+const commandTraduction = require("../../traductions/Utility/ping")
 
 // Exporting Command
 module.exports = {
@@ -14,10 +15,13 @@ module.exports = {
      * @param {Array} args 
      */
     async run(client, message, args) {
+        // Traduction System
+        let traduction = commandTraduction[process.env.defaultUserLang]
+
         // Send Message
-        let pingMessage = await message.channel.send({ content: `Calculating Ping` })
+        let pingMessage = await message.channel.send({ content: `🏓 → ${traduction.calculePing}` })
 
         // Editing Message with Results
-        await pingMessage.edit({ content: `🔎 Latency Results:\n\nAPI → **${client.ws.ping}ms**\nMessage → **${pingMessage.createdTimestamp - message.createdTimestamp}ms**`})
+        await pingMessage.edit({ content: `<:kimme:1162062940304846909> ${traduction.latencyResults}:\n\nAPI → **${client.ws.ping}ms**\nMessage → **${pingMessage.createdTimestamp - message.createdTimestamp}ms**`})
     }
 }

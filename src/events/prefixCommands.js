@@ -25,15 +25,15 @@ module.exports = {
 
         let command = args.shift().toLowerCase()
         if (command.length === 0) return;
-        command = client.commands.get(command)
-        if (!command) command = client.commands.get(client.aliases.get(command))
+        let Command = client.commands.get(command)
+        if (!Command) Command = client.commands.get(client.aliases.get(command))
 
         // Permissions to execute the command
         if (command.guildOnly) if (!message.guild) return message.reply({ content: `This command only Accepts **Guild Execute**`})
 
         try {
             // Run Command
-            command.run(client, message, args)
+            Command.run(client, message, args)
         } catch(err) {
             console.error(err)
         }
