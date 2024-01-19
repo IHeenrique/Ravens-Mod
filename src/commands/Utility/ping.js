@@ -16,12 +16,12 @@ module.exports = {
      */
     async run(client, message, args) {
         // Traduction System
+        args.includes
         let traduction = commandTraduction[process.env.defaultUserLang]
 
         // Send Message
         let pingMessage = await message.channel.send({ content: `🏓 → ${traduction.calculePing}` })
-
         // Editing Message with Results
-        await pingMessage.edit({ content: `<:kimme:1162062940304846909> ${traduction.latencyResults}:\n\nAPI → **${client.ws.ping}ms**\nMessage → **${pingMessage.createdTimestamp - message.createdTimestamp}ms**`})
+        await pingMessage.edit({ content: `${traduction.latencyResults}:\n\nAPI → **${client.ws.ping}ms**\nMessage → **${pingMessage.createdTimestamp - message.createdTimestamp}ms**`})
     }
 }

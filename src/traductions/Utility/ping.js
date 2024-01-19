@@ -1,14 +1,14 @@
 module.exports = {
     ptbr: {
         calculePing: `Calculando o Ping`,
-        latencyResults: `Resultados da Latência Kimme`
+        latencyResults: `Resultados da Latência`
     },
     enus: {
         calculePing: `Calculating Ping`,
-        latencyResults: `Kimme Latency Results`
+        latencyResults: `Latency Results`
     },
     eses: {
         calculePing: `Calculando el Ping`,
-        latencyResults: `Resultados de Çatencia Kimme`
+        latencyResults: `Resultados de Çatencia`
     }
 }
