@@ -40,15 +40,6 @@ To use Ravens, simply invite it to your server and start moderating using the pr
 | defaultPrefix       | ! |
 | defaultUserLang       | enus |
 
-
-\`\`\`dotenv
-clientToken=YOUR_DISCORD_BOT_TOKEN
-dataBase=YOUR_MONGODB_CONNECTION_STRING
-
-defaultPrefix=!
-defaultUserLang=enus
-\`\`\`
-
 4. Run the bot using \`node bot.js\`.
 
 ## Configuration
