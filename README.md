@@ -33,6 +33,14 @@ To use Ravens, simply invite it to your server and start moderating using the pr
 2. Install the required dependencies using \`npm install\`.
 3. Configure your bot token and MongoDB connection string in the \`.env\` file.
 
+| Chave               | Valor                                            |
+| ----------------- | ---------------------------------------------------------------- |
+| clientToken       | YOUR_DISCORD_BOT_TOKEN |
+| dataBase          | YOUR_MONGODB_CONNECTION_STRING |
+| defaultPrefix       | ! |
+| defaultUserLang       | enus |
+
+
 \`\`\`dotenv
 clientToken=YOUR_DISCORD_BOT_TOKEN
 dataBase=YOUR_MONGODB_CONNECTION_STRING
