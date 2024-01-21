@@ -53,7 +53,7 @@ module.exports = {
        lang = lang.replace('-', '').toLowerCase()
 
        let traduction = Warning[lang]
-       if(!traduction?.length) traduction = Warning["enus"]
+       if(!traduction) traduction = Warning["enus"]
 
         if(!interaction.member.permissions.has(PermissionFlagsBits.KickMembers)) return interaction.reply({ content: `${traduction.error.missingPerms}`})
        

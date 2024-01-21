@@ -11,16 +11,6 @@ const { Manager } = require("erela.js");
 require("dotenv").config()
 
 // Discord Client
-
-const nodes = [
-    {
-      "host": "ravens.squareweb.app",
-      "port": 443,
-      "secure": true,
-      "password": "JqRfdlynPH7d7CHxKD5w28WU4yEeyHD0elHOOKxZ",
-    }
-  ];
-
 const client = new Discord.Client({
     intents: 3276799,
     partials: [
@@ -35,14 +25,6 @@ const client = new Discord.Client({
 client.commands = new Discord.Collection()
 client.aliases = new Discord.Collection()
 client.slashCommands = new Discord.Collection()
-client.testModels = [{ name: "support ticket", value: "support%20"}, { name: "Nexus", value: "nexus"}, { name: "appeal", value: "appeal"}]
-client.manager = new Manager({
-    nodes,
-    send: (id, payload) => {
-      const guild = client.guilds.cache.get(id);
-      if (guild) guild.shard.send(payload);
-    }
-  });
 
 
 module.exports = client
@@ -101,16 +83,6 @@ mg.connect(process.env.dataBase, {}).then(() => {
     console.log("Database")
 });
 
-client.manager.on("nodeConnect", node => {
-    console.log(`Node "${node.options.identifier}" connected.`)
-})
-
-// Emitted whenever a node encountered an error
-client.manager.on("nodeError", (node, error) => {
-    console.log(`Node "${node.options.identifier}" encountered an error: ${error.message}.`)
-})
-
-client.on("raw", d => client.manager.updateVoiceState(d));
 
 
 // Catch Errors

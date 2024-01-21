@@ -10,7 +10,7 @@ const Warning = require("../../traductions/Mod/Warning")
 module.exports = {
     name: "warn",
     aliases: ["avisar"],
-    guildOnly: false,
+    guildOnly: false,   
     /**
      * 
      * @param {client} client 
@@ -18,15 +18,16 @@ module.exports = {
      * @param {Array} args 
      */
     async run(client, message, args) {
-
+        
         let lang = message.guild.preferredLocale || "enus"
        lang = lang.replace('-', '').toLowerCase()
 
        let traduction = Warning[lang]
-       if(!traduction?.length) traduction = Warning["enus"]
+       if(!traduction) traduction = Warning["enus"]
+       
 
         if(!message.member.permissions.has(PermissionFlagsBits.KickMembers)) return message.reply({ content: `${traduction.error.missingPerms}`})
-       
+    
         let user = await message.mentions.members.first() || await client.users.cache.get(args[0]);
         if(!user || !args[0]) return message.reply({ content: `${traduction.error.missingUser}`})
         user = await client.users.cache.get(user.id);
@@ -35,6 +36,7 @@ module.exports = {
         if(user.id == message.guild.ownerId) return message.reply({ content: `${traduction.error.ownerPunishment}`})
         if(user.bot) return message.reply({ content: `${traduction.error.botPunishment}`})
 
+        if(user.id )
 
         if(message.guild.members.cache.get(user.id) && message.guild.ownerId != message.author.id) {
             let userRole = message.guild.members.cache.get(user.id).roles.highest.position
