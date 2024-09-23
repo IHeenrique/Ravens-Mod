@@ -100,12 +100,10 @@ module.exports = {
         const buttons = new ActionRowBuilder().addComponents(
             new ButtonBuilder()
             .setLabel(`${traduction.buttons.confirm}`)
-            .setEmoji(`<:check:1195469163238535359>`)
             .setStyle(ButtonStyle.Success)
             .setCustomId("confirm"),
             new ButtonBuilder()
             .setLabel(`${traduction.buttons.cancel}`)
-            .setEmoji(`<<:cancel:1195469261427183637>`)
             .setStyle(ButtonStyle.Secondary)
             .setCustomId("cancel"),
         )
